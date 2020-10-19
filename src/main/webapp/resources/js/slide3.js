@@ -1,0 +1,16 @@
+$(document).ready(function(){
+    $('.c4_title2').click(function(){
+        $('.c4_title2').css('color','#000');
+        $('.c4_title1').css('color','#8b8989');
+        $('.c4_slide').stop().animate({
+            'margin-left':'-1280px'
+        });
+    });
+    $('.c4_title1').click(function(){
+        $('.c4_title1').css('color','#000');
+        $('.c4_title2').css('color','#8b8989');
+        $('.c4_slide').stop().animate({
+            'margin-left':'0px'
+        });
+    });
+});
