@@ -24,7 +24,7 @@
             width: 1280px;
             background-color: #fff;
             margin: 0 auto;
-            min-height: 2100px;
+            min-height: 2500px;
         }
         .top_content_img{
             float: left;
@@ -60,6 +60,7 @@
             margin:30px 20px;
             float: left;
         }
+        
         .small_login{
             text-align: center;
             width: 100%;
@@ -441,6 +442,7 @@
             width: 900px;
             min-height: 300px;
             padding: 20px;
+            clear:both;
         }
         .t_rpy{
             margin-top: 10px;
@@ -528,6 +530,13 @@
         }
         .Reply{
             background-color: rgba(100, 100, 100, 0.1);
+        }
+        .btn_bno_content{
+        	text-align : center;
+        	margin-top:15px;
+        }
+        .table_btn{
+        margin:0 3px;
         }
         
     </style>
@@ -795,7 +804,7 @@
                         </h1>
                     </div>
                     <div class="korea_tripnav">
-                        <h2 >국내 여행지
+                        <h2>국내 여행지
                             <img src="/resources/img/hamburger.png" alt="햄버거" width="20" height="20">
                         </h2>
                         <hr>
@@ -978,7 +987,7 @@
             <div class="board_content">
                     <div class="c1">
                         <div class="c1_1">${boardVO.title}</div>
-                        <div class="c1_2">작성자 : <a href="#">${boardVO.writer}<img src="/resources/img/icon.png" width="20" height="10"></a><span><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" /></span></div>
+                        <div class="c1_2">작성자 : <a href="#">${boardVO.writer}<img src="/resources/img/icon.png" width="20" height="10"><br></a><span><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" /></span></div>
                     </div>
                     <div class="c2">
                     <c:if test="${boardVO.files[0] != null}">
@@ -1057,7 +1066,7 @@
                         </div>
                         
                         </div>
-                  
+                  </div>
             </div>
         </div>
 
