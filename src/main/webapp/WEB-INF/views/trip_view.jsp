@@ -1001,8 +1001,7 @@
 					</c:if>
 					</li>
 				</c:if>
-                    
-                        ${boardVO.content}
+                     ${boardVO.content}
                     </div>
                     <div class="filebox">
                         <p>첨부파일</p>
@@ -1084,7 +1083,7 @@
                     <a href="#">공지사항</a>
                 </li>
             </ul>
-            <p>Copyright © TripDiary Corp. All rights reserved. | TEL. 02-1234-5678 | 경기 성남시 분당구 판교역로 | 대표:우정호</p>
+            <p>Copyright © TripDiary Corp. All rights reserved. | TEL. 02-1234-5678 | 경기 성남시 분당구 판교역로 | 공동대표:우정호 , 백시몬</p>
         </div>
     </footer>
     <!-- footer 끝-->

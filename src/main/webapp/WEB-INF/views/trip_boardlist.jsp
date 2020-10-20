@@ -729,7 +729,7 @@ if('${msg}' != ""){
                                         <td class="td4">${boardVO.writer}</td>
                                         <td class="td5"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" /></td>
                                         <td class="td6">${boardVO.view_count}</td>
-                                        <td class="td7">${boardVO.view_count}</td>
+                                        <td class="td7">준비중입니다.</td>
                                          </tr>
                                     </c:forEach>
                               </tbody>
@@ -773,7 +773,7 @@ if('${msg}' != ""){
                     <a href="#">공지사항</a>
                 </li>
             </ul>
-            <p>Copyright © TripDiary Corp. All rights reserved. | TEL. 02-1234-5678 | 경기 성남시 분당구 판교역로 | 대표:우정호</p>
+            <p>Copyright © TripDiary Corp. All rights reserved. | TEL. 02-1234-5678 | 경기 성남시 분당구 판교역로 | 공동대표:우정호 , 백시몬</p>
         </div>
     </footer>
     <!-- footer 끝-->

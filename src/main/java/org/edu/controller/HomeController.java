@@ -154,6 +154,7 @@ public class HomeController {
 			pageVO.setPerPageNum(10);//1페이지당 보여줄 게시물 수 강제지정
 			pageVO.setTotalCount(boardService.countBno(pageVO));//강제로 입력한 값을 쿼리로 대체OK.
 			List<BoardVO> list = boardService.selectBoard(pageVO);
+			
 			//모델클래스로 jsp화면으로 boardService에서 셀렉트한 list값을 boardList변수명으로 보낸다.
 			//첨부파일 출력때문에 추가 Start
 		      List<BoardVO> boardListFiles = new ArrayList<BoardVO>();
@@ -218,7 +219,7 @@ public class HomeController {
 		 * @throws Exception 
 			 */
 			   @RequestMapping(value = "trip_boardwrite", method = RequestMethod.POST)
-			   public String trip_boardwrite(MultipartFile file,BoardVO boardVO,Locale locale, Model model,RedirectAttributes rdat) throws Exception {
+			   public String trip_boardwrite(MultipartFile file,@Valid BoardVO boardVO,Locale locale, Model model,RedirectAttributes rdat) throws Exception {
 				 //System.out.println("========첨부파일없이 저장===" + file.getOriginalFilename());
 				      if(file.getOriginalFilename() == "") {
 				         //첨부파일 없이 저장
