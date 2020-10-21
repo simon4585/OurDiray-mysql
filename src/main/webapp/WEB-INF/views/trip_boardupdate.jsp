@@ -350,7 +350,7 @@
             </div>
             <div class="top_content">
                 <div>
-                    <h1>게시글 작성</h1>
+                    <h1>게시글 수정</h1>
                 </div>
                 
             </div>
@@ -453,8 +453,8 @@
             </div>
             
              <div class="board_content">
-                <form action="trip_boardwrite" method="post" encType="multipart/form-data">
-                  <input type="text" class="w_title" name="title" placeholder="제목을 입력해주세요" required>
+                <form action="trip_boardupdate" method="post" encType="multipart/form-data">
+                  <input type="text" value="${boardVO.title}" class="w_title" name="title" placeholder="제목을 입력해주세요" required>
                   
                   
                     <select name="bod_type">
@@ -480,7 +480,7 @@
                 
                     <input type="hidden" class="w_title" name="writer" value="${session_username}">
                     
-                    <textarea name="content" id="content" placeholder="　글을 적어주세요"></textarea>
+                    <textarea name="content" id="content" placeholder="　글을 적어주세요">${boardVO.content}</textarea>
                     
                     <div class="filebox">
                         <input class="upload-name" value="파일선택">

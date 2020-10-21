@@ -75,6 +75,40 @@ public class HomeController {
 	
 	@Inject
 	private NaverLoginController naverLoginController;
+	
+	@RequestMapping(value = "/trip_boardupdate", method = RequestMethod.GET)
+	public String boardUpdate(@ModelAttribute("pageVO") PageVO pageVO, @RequestParam("bno") Integer bno, Locale locale,
+			Model model) throws Exception {
+		BoardVO boardVO = boardService.viewBoard(bno);
+		model.addAttribute("boardVO", boardVO);
+		model.addAttribute("pageVO", pageVO);
+		return "trip_boardupdate";
+	}
+
+	@RequestMapping(value = "/trip_boardupdate", method = RequestMethod.POST)
+	public String boardUpdate(@ModelAttribute("pageVO") PageVO pageVO, MultipartFile file, @Valid BoardVO boardVO,
+			Locale locale, RedirectAttributes rdat) throws Exception {
+		if (file.getOriginalFilename() == "") {
+			boardService.updateBoard(boardVO);
+		} else {
+			// 이전 첨부파일 삭제처리(아래)
+			List<String> delFiles = boardService.selectAttach(boardVO.getBno());
+			for (String fileName : delFiles) {
+				// 실제파일삭제
+				File target = new File(fileDataUtil.getUploadPath(), fileName);
+				if (target.exists()) { // 해당경로에 파일명이 존재한다면
+					target.delete(); // 파일을 삭제하겠다
+				} // end if
+			} // end for
+				// 아래에서 부터 신규 파일 업로드
+			String[] files = fileDataUtil.fileUpload(file); // 실제파일업로드후 파일명 리턴
+			boardVO.setFiles(files); // 데이터베이스 <-> vo(get,set) -dao클래스
+			boardService.updateBoard(boardVO);
+		}
+
+		rdat.addFlashAttribute("msg", "수정");
+		return "redirect:/trip_view?bno=" + boardVO.getBno() + "&page=" + pageVO.getPage();
+	}
 
 	
 	
