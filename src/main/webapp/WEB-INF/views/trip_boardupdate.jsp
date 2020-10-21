@@ -495,7 +495,8 @@
                      <td><input type="file" value="파일 선택" name="file" /></td>
                   </tr>
                </div> -->
-                    
+                    <input name="bno" type="hidden" value="${boardVO.bno}">
+				    <input name="page" type="hidden" value="${pageVO.page}">
                     <div class="bot_content">
                         <button type="submit" class="table_btn">등록</button>
                         <button type="button" onclick="window.open('trip_boardlist')" class="table_btn">목록</button>

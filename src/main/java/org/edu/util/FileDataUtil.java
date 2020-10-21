@@ -27,7 +27,7 @@ public class FileDataUtil {
 			add("gif");
 			add("jpg");
 			add("png");
-			add(".jpeg");
+			add("jpeg");
 		}
 	};
 	//첨부파일 업로드 경로 변수값으로 가져옴 servlet-context.xml
