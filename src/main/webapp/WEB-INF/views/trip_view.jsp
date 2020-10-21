@@ -2,17 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="/resources/js/common.js"></script>
-    <script src="/resources/js/boardlist.js"></script>
+<%@ include file="include/header.jsp" %>
+
     <script src="/resources/js/share.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <title>::write</title>
+
     <style>
          .board_view{
             min-width: 1280px;
@@ -91,18 +84,18 @@
             border: 1px solid gray;
             padding: 10px 0;
         }
-        .left_nav>div{
+        .left_nav div{
             margin:10px
         }
         .left_nav a,.left_nav a:link,.left_nav a:visited{
             color: black;
         }
         /*국내 먹거리 네비 시작*/
-        .korea_foodnav>h2{
+        .korea_foodnav h2{
             float: left;
             cursor: pointer;
         }
-        .korea_foodnav>h2>img{
+        .korea_foodnav h2>img{
             padding-left: 70px;
         }
         .korea_foodnav hr{
@@ -540,8 +533,7 @@
         }
         
     </style>
-</head>
-<body>
+
     <div class="header">
         <div class="container1">
             <div class="logo">
@@ -686,287 +678,64 @@
              </c:otherwise>
              </c:choose>
                 <div class="left_nav">
+                    <a href="trip_boardlist?searchBoard=먹거리">
                     <div class="nav_title1">
                         <h1>먹거리
                             <img src="/resources/img/food.png" alt="음식" width="30" height="20">
                         </h1>
                     </div>
+                    </a>
+                    <c:forEach items="${boardTypeMenu}" var="boardTypeMenu" begin="0" end="1">
+                    <a href="/trip_boardlist?searchBoard=${boardTypeMenu.bod_type}&searchBoard_type=${boardTypeMenu.bod_name}">
                     <div class="korea_foodnav">
-                        <h2 >국내 먹거리
+                        <h2 >${boardTypeMenu.bod_name}
                             <img src="/resources/img/hamburger.png" alt="햄버거" width="20" height="20">
                         </h2>
                         <hr>
-                        <div class="ko_fdnav_1">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전체</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">서울</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">경기도</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">강원도</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">충남</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">충북</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">경남</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">경북</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전남</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전북</h3>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                       </div>
+                       </a>
+                    </c:forEach>
 
-                    <div class="overseas_foodnav">
-                        <h2>해외 먹거리
-                            <img src="/resources/img/hamburger.png" alt="햄버거" width="20" height="20">
-                        </h2>
-                        <hr>
-                        <div class="se_fdnav_1">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전체</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">아시아</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">유럽</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">북미</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">남태평양</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">중동</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">아프리카</h3>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
+                     
+                    <a href="trip_boardlist?searchBoard=여행지">
                     <div class="nav_title2">
                         <h1>여행지
                             <img src="/resources/img/trip.png" alt="여행" width="30" height="20">
                         </h1>
                     </div>
-                    <div class="korea_tripnav">
-                        <h2>국내 여행지
-                            <img src="/resources/img/hamburger.png" alt="햄버거" width="20" height="20">
-                        </h2>
-                        <hr>
-                        <div class="ko_trnav_1">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전체</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">서울</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">경기도</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">강원도</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">충남</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">충북</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">경남</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">경북</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전남</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전북</h3>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="overseas_tripnav">
-                        <h2>해외 여행지
-                            <img src="/resources/img/hamburger.png" alt="햄버거" width="20" height="20">
-                        </h2>
-                        <hr>
-                        <div class="se_trnav_1">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전체</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">아시아</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">유럽</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">북미</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">남태평양</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">중동</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">아프리카</h3>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    </a>
                     
+                    <c:forEach items="${boardTypeMenu}" var="boardTypeMenu" begin="2" end="3">
+                    <a href="/trip_boardlist?searchBoard=${boardTypeMenu.bod_type}&searchBoard_type=${boardTypeMenu.bod_name}">
+                    <div class="korea_tripnav">
+                        <h2 >${boardTypeMenu.bod_name}
+                            <img src="/resources/img/hamburger.png" alt="햄버거" width="20" height="20">
+                        </h2>
+                        <hr>
+                    </div>
+                    </a>
+                    </c:forEach>
+                    
+      
+                    
+                    <a href="trip_boardlist?searchBoard=숙소">
                     <div class="nav_title3">
                         <h1>숙소
                             <img src="/resources/img/accommondation.png" alt="숙소" width="30" height="20">
                         </h1>
                     </div>
+                    </a>
+                    
+                    <c:forEach items="${boardTypeMenu}" var="boardTypeMenu" begin="4" end="5">
+                    <a href="/trip_boardlist?searchBoard=${boardTypeMenu.bod_type}&searchBoard_type=${boardTypeMenu.bod_name}">
                     <div class="accommodation_view">
-                        <h2>구경하기
+                        <h2>${boardTypeMenu.bod_name}
                             <img src="/resources/img/hamburger.png" alt="햄버거" width="20" height="20">
                         </h2>
                         <hr>
-                        <div class="ac_viewnav_1">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전체</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">국내</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">해외</h3>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="accommodation_comment">
-                        <h2>숙소후기
-                            <img src="/resources/img/hamburger.png" alt="햄버거" width="20" height="20">
-                        </h2>
-                        <hr>
-                        <div class="ac_commentnav_1">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">전체</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">국내</h3>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3><img src="/resources/img/text.png" width="20" height="10">해외</h3>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
+                     </div>
+                     </a>
+                     </c:forEach>
                     <br>
                     <br>
                     <hr>
@@ -1001,7 +770,8 @@
 					</c:if>
 					</li>
 				</c:if>
-                     ${boardVO.content}
+                    
+                        ${boardVO.content}
                     </div>
                     <div class="filebox">
                         <p>첨부파일</p>
@@ -1069,24 +839,7 @@
             </div>
         </div>
 
-    <!-- footer 시작-->
-    <footer>
-        <div class="footer_Area">
-            <ul>
-                <li>
-                    <a href="#">이용약관</a>
-                </li>
-                <li>
-                    <a href="#">개인정보처리방침</a>
-                </li>
-                <li>
-                    <a href="#">공지사항</a>
-                </li>
-            </ul>
-            <p>Copyright © TripDiary Corp. All rights reserved. | TEL. 02-1234-5678 | 경기 성남시 분당구 판교역로 | 공동대표:우정호 , 백시몬</p>
-        </div>
-    </footer>
-    <!-- footer 끝-->
+
    <!-- 댓글 관련 자바스크립트 시작 -->
 
 <!-- 댓글 리스트 반복문용 JQuery라이브러리 == jstl의 forEach같은 역할 -->
@@ -1363,5 +1116,4 @@ $(document).ready(function(){
 		});
 	});
     </script>
-</body>
-</html>
+<%@ include file="include/footer.jsp" %>

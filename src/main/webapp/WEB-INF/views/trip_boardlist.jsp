@@ -5,16 +5,7 @@
 <%@ page import="java.util.regex.Pattern" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page import="org.edu.vo.BoardVO" %>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="/resources/js/common.js"></script>
-    <script src="/resources/js/boardlist.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
-    <title>::list</title>
+<%@ include file="include/header.jsp" %>
     <style>
         .board_list{
             min-width: 1280px;
@@ -409,119 +400,7 @@
             width: 700px;
         }
     </style>
-</head>
-<script>
-if('${msg}' != ""){
-	alert("${msg} 에 성공하였습니다");
-}
-</script>
-<body>
-    <div class="header">
-        <div class="container1">
-            <div class="logo">
-                <a href="/"><img src="/resources/img/logo.png" alt="로고디자인" width="150" height="100"></a>
-            </div>
-            <div class="nav">
-                <ul class="nav_t1">
-                    <li>먹거리</li>
-                    <li>여행지</li>
-                    <li>숙소</li>
-                </ul>
-                <ul class="fade_nav1 fade_common">
-                <c:forEach items="${boardTypeMenu}" var="boardTypeMenu" begin="0" end="1">
-                <a href="/trip_boardlist?searchBoard=${boardTypeMenu.bod_type}&searchBoard_type=${boardTypeMenu.bod_name}">
-                <li>${boardTypeMenu.bod_name}</li></a>
-                </c:forEach>
-                    <!-- <li><a href="trip_boardlist">국내 먹거리</a></li>
-                    <li><a href="trip_boardlist">해외 먹거리</a></li> -->
-                </ul>
-                <ul class="fade_nav2 fade_common">
-                 <c:forEach items="${boardTypeMenu}" var="boardTypeMenu" begin="2" end="3">
-                 <a href="/trip_boardlist?searchBoard=${boardTypeMenu.bod_type}&searchBoard_type=${boardTypeMenu.bod_name}">
-                 <li>${boardTypeMenu.bod_name}</li></a>
-                 </c:forEach>
-                </ul>
-                <ul class="fade_nav3 fade_common">
-                 <c:forEach items="${boardTypeMenu}" var="boardTypeMenu" begin="4" end="5">
-                 <a href="/trip_boardlist?searchBoard=${boardTypeMenu.bod_type}&searchBoard_type=${boardTypeMenu.bod_name}">
-                 <li>${boardTypeMenu.bod_name}</li></a>
-                 </c:forEach>
-                </ul>
-                <ul class="nav_t2">
-                    <c:choose>
-					<c:when test="${session_enabled eq 'true' }">
-						<li>${session_username}님[${session_userid}]</li>
-						<li><a href="/logout">로그아웃</a>
-						</li>
-						<li><a href="#">마이페이지</a>
-						</li>
-						<c:if test="${session_levels eq 'ROLE_ADMIN'}">
-							<li><a href="/admin">관리자</a>
-							</li>
-						</c:if>
-					</c:when>
-					<c:otherwise>
-						<li><a href="/login">로그인</a>
-						</li>
-						<li><a href="/signUp">회원가입</a>
-						</li>
-					</c:otherwise>
-					</c:choose>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- header 끝 -->
 
-    <!-- 화면 작아졌을때 header 시작 -->
-    <div class="header2">
-        <div class="container1-2">
-            <div class="logo2">
-                <a href="/"><img src="/resources/img/logo2.png" alt="로고디자인" width="150" height="50"></a>
-            </div>
-            <div class="nav2">
-                <ul class="nav2_t1">
-                    <li>먹거리</li>
-                    <li>여행지</li>
-                    <li>숙소</li>
-                </ul>
-                <ul class="fade_nav21 fade_common2">
-                    <li><a href="trip_boardlist">국내 먹거리</a></li>
-                    <li><a href="trip_boardlist">해외 먹거리</a></li>
-                </ul>
-                <ul class="fade_nav22 fade_common2">
-                    <li><a href="trip_boardlist">국내 여행지</a></li>
-                    <li><a href="trip_boardlist">해외 여행지</a></li>
-                </ul>
-                <ul class="fade_nav23 fade_common2">
-                    <li><a href="trip_boardlist">구경하기</a></li>
-                    <li><a href="trip_boardlist">숙소후기</a></li>
-                </ul>
-                <ul class="nav2_t2">
-                    <c:choose>
-					<c:when test="${session_enabled eq 'true'}">
-						<li>${session_username}님[${session_userid}]</li>
-						<li><a href="/logout">로그아웃</a>
-						</li>
-						<li><a href="#">마이페이지</a>
-						</li>
-						<c:if test="${session_levels eq 'ROLE_ADMIN'}">
-							<li><a href="/admin">관리자</a>
-							</li>
-						</c:if>
-					</c:when>
-					<c:otherwise>
-						<li><a href="/login">로그인</a>
-						</li>
-						<li><a href="/signUp">회원가입</a>
-						</li>
-					</c:otherwise>
-					</c:choose>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- 화면 작아졌을때 header 끝 -->
 
 
     <!-- 보드 리스트 시작-->
@@ -729,7 +608,7 @@ if('${msg}' != ""){
                                         <td class="td4">${boardVO.writer}</td>
                                         <td class="td5"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate}" /></td>
                                         <td class="td6">${boardVO.view_count}</td>
-                                        <td class="td7">준비중입니다.</td>
+                                        <td class="td7">${boardVO.view_count}</td>
                                          </tr>
                                     </c:forEach>
                               </tbody>
@@ -759,23 +638,4 @@ if('${msg}' != ""){
         </div>
     </div>
     <!-- 보드 리스트 끝-->
-    <!-- footer 시작-->
-    <footer>
-        <div class="footer_Area">
-            <ul>
-                <li>
-                    <a href="#">이용약관</a>
-                </li>
-                <li>
-                    <a href="#">개인정보처리방침</a>
-                </li>
-                <li>
-                    <a href="#">공지사항</a>
-                </li>
-            </ul>
-            <p>Copyright © TripDiary Corp. All rights reserved. | TEL. 02-1234-5678 | 경기 성남시 분당구 판교역로 | 공동대표:우정호 , 백시몬</p>
-        </div>
-    </footer>
-    <!-- footer 끝-->
-</body>
-</html>
+    <%@ include file="include/footer.jsp" %>
