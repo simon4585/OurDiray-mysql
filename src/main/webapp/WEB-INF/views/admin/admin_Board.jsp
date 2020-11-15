@@ -77,15 +77,15 @@
              <ul class="pagination" style="position:relative;left:40%;">
              <c:if test="${pageVO.prev}">
              <li class="page-item">
-                <a class="page-link" href="_Board?page=${pageVO.startPage-1}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}">이전</a>
+                <a class="page-link" href="/admin/admin_Board?page=${pageVO.startPage-1}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}">이전</a>
              </li>
              </c:if>
              <c:forEach begin="${pageVO.startPage}" end="${pageVO.endPage}" var="idx">
-                <li class='page-item <c:out value="${idx==pageVO.page?'active':''}"/>'><a href="_Board?page=${idx}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}" class="page-link">${idx}</a></li>
+                <li class='page-item <c:out value="${idx==pageVO.page?'active':''}"/>'><a href="/admin/admin_Board?page=${idx}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}" class="page-link">${idx}</a></li>
              </c:forEach>
              <c:if test="${pageVO.next}">
              <li class="page-item">
-                <a class="page-link" href="_Board?page=${pageVO.endPage+1}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}">다음</a>
+                <a class="page-link" href="admin/admin_Board?page=${pageVO.endPage+1}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}">다음</a>
              </li>
              </c:if>
             </ul>  

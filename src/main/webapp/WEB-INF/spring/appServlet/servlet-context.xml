@@ -34,8 +34,7 @@
 	
 	<!-- 업로드한 파일이 저장되는 위치: 운영서버용 /tmp  -->
 	<!-- <beans:bean id="uploadPath" class="java.lang.String">
-	    <beans:constructor-arg value="/tmp">
-	    </beans:constructor-arg>
+	    <beans:constructor-arg value="/tmp"></beans:constructor-arg>
 	</beans:bean> -->
 	
 	<!-- 업로드한 파일이 저장되는 위치: 로컬PC용  -->

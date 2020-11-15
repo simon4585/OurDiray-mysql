@@ -57,7 +57,7 @@
                       <c:forEach items="${memberList}" var="memberVO" varStatus="status">
                     <tr>
                       <td>${memberVO.user_id}</td>
-                      <td><a href="_MemberView?user_id=${memberVO.user_id}&page=${pageVO.page}">${memberVO.user_name}</a></td>
+                      <td><a href="/admin/admin_MemberView?user_id=${memberVO.user_id}&page=${pageVO.page}">${memberVO.user_name}</a></td>
                       <td>${memberVO.email}</td>
                       <td><span class="tag tag-success">${memberVO.enabled}</span></td>
                       
@@ -75,21 +75,21 @@
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-                <a href="_MemberWrite" class="btn btn-sm btn-info float-left">회원 생성</a>
+                <a href="/admin/admin_MemberWrite" class="btn btn-sm btn-info float-left">회원 생성</a>
                 <div class="card-tools">
               <nav aria-label="Contacts Page Navigation">
             <ul class="pagination" style="position:relative;left:40%;">
             <c:if test="${pageVO.prev}">
                <li class="page-item">
-               <a class="page-link" href="_member?page=${pageVO.startPage-1}"&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}>이전</a>
+               <a class="page-link" href="/admin/admin_Member?page=${pageVO.startPage-1}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}">이전</a>
                </li>
                </c:if>
             <c:forEach begin="${pageVO.startPage}" end="${pageVO.endPage}" var="idx">
-               <li class='page-item <c:out value="${idx==pageVO.page?'active':''}"/>'><a href="_Member?page=${idx}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}" class="page-link">${idx}</a></li>
+               <li class='page-item <c:out value="${idx==pageVO.page?'active':''}"/>'><a href="/admin/admin_Member?page=${idx}&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}" class="page-link">${idx}</a></li>
             </c:forEach>
              <c:if test="${pageVO.next}">
                <li class="page-item">
-               <a class="page-link" href="_Member?page=${pageVO.endPage+1}"&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}>다음</a>
+               <a class="page-link" href="/admin/admin_Member?page=${pageVO.endPage+1}"&searchType=${pageVO.searchType}&searchKeyword=${pageVO.searchKeyword}>다음</a>
                </li>
                </c:if>
              </ul>

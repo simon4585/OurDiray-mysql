@@ -15,56 +15,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 <mapper namespace="org.edu.dao.IF_BoardDAO">
-    <!-- 게시글 추천 관련 쿼리 -->
-    
-    
-    
-    <!-- <update id = "recommendBoard">
-     update tbl_board set
-     recommend = recommend + 1
-     where bno = #{bno}
-    </update>
-    
-    <update id = "recommend_cancel">
-    update tbl_board set
-    recommend = recommend -1
-    where bno = #{bno}
-    </update>
-    
-    <insert id="recommendInput">
-    insert into tbl_recommend (recommend_check,bno,user_id) 
-    values (#{recommend_check},#{bno},#{user_id})
-    </insert>
-   
-    추천 중복조회
-    <select id ="recommendCheck" resultType="map">
-    select recommend_check from tbl_recommend
-    where bno = #{bno}
-    and  user_id = #{user_id}
-    </select> -->
-    
-    <!-- 게시글 추천 -->
-    <insert id="recommend_insert" >
-    insert into tbl_recommend
-    values (#{bno},#{user_id})
-    </insert>
-    
-    <!-- 게시글 추천 취소 -->
-	<delete id="recommend_delete" >
-		delete from ex_rec where tbl_recommend = #{bno} and user_id = #{user_id}
-	</delete>
-	
-	<!-- 게시글 추천수 -->
-	<select id="recommend_cnt" resultType="int">
-		select count(*) from tbl_recommend where bno = #{bno}
-	</select>
-	
-    <!-- 동일 게시글 추천여부 조회 -->
-    <select id="recommend_check" resultType="int">
-    select count(*) from tbl_recommend
-    where bno = #{bno}
-    and user_id = #{user_id}
-    </select>
     
     <!--게시글 추가 쿼리  -->
 	<insert id="insertBoard">

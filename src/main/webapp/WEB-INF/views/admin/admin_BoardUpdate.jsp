@@ -69,7 +69,7 @@
                   </div>
                 </div>
               </div>
-              <input type="hidden" name="recommend" value="${boardVO.recommend}">
+   
               <input type="hidden" name="bno" value="${boardVO.bno}">
               <input type="hidden" name="page" value="${pageVO.page}">
               <!--버튼-->

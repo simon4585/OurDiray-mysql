@@ -97,17 +97,17 @@
                     <ul>
                         <li>
                             <label>아이디<br>
-                                <input type="text"  name="user_id">
+                                <input type="text"  name="user_id" required>
                             </label>
                         </li>
                         <li>
                             <label>닉네임<br>
-                                <input type="text"  name="user_name">
+                                <input type="text"  name="user_name" required>
                             </label>
                         </li>
                         <li>
                             <label>비밀번호<br>
-                                <input type="password" name="user_pw">
+                                <input type="password" name="user_pw" required>
                             </label>
                         </li>
                         

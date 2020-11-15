@@ -152,7 +152,7 @@ public class HomeController {
 	   return "signUp";	
 	}
 	@RequestMapping(value = "/signUp", method = RequestMethod.POST)
-	   public String signUp(MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
+	   public String signUp(@Valid MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
 	      String new_pw = memberVO.getUser_pw(); //1234
 	      if(new_pw !="") {
 	       //스프링 시큐리티 4.x BCryptPasswordEncoder 암호화 사용

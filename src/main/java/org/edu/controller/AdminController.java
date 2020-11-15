@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
@@ -40,6 +41,21 @@ public class AdminController {
 		
 		@Inject
 		private FileDataUtil fileDataUtil;
+		
+		/**
+		 * 회원아이디 체크 RestAPI 입니다. 주) @ResponseBody 사용됨.
+		 * @throws Exception 
+		 */
+		@RequestMapping(value = "/member/idcheck", method = RequestMethod.GET)
+		@ResponseBody
+		public int idCheck(@RequestParam("user_id") String user_id) throws Exception {
+			MemberVO memberVO = memberService.viewMember(user_id);
+			int check = 0;//쿼리 결과값이 존재하는지 체크하는 변수
+			if(memberVO!=null) {
+				check = 1;
+			}
+			return check;
+		}
 		
 		/**
 		 * 회원관리 > 수정 입니다.
